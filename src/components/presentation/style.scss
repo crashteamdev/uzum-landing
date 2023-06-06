@@ -1,0 +1,95 @@
+.presentation-slider {
+  background: #f3f7fe;
+  position: relative;
+  &::after {
+    content: "";
+    background-color: #fff;
+    width: 100%;
+    height: 241px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+  .title {
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 34px;
+    position: absolute;
+  }
+  .presentation-swiper {
+    padding-top: 127px;
+    &-item {
+      padding-top: 55px;
+      padding-left: 40px;
+      padding-bottom: 110px;
+      height: 482px;
+      display: flex;
+      background: linear-gradient(107.49deg, #3c7beb -0.68%, #79a9fe 100.79%);
+      border-radius: 10px;
+      &-arrows {
+        display: flex;
+        position: absolute;
+        bottom: 0;
+        .slider-navigation__arrow {
+          margin-right: 10px;
+          border: 1px solid rgba(255, 255, 255, 0.3);
+          &:last-child {
+            margin-right: 0;
+          }
+          svg path {
+            stroke: rgba(255, 255, 255, 0.3);
+          }
+          &:hover {
+            border: 1px solid #fff;
+            background-color: none;
+            svg path {
+              stroke: rgba(255, 255, 255);
+            }
+          }
+        }
+      }
+      &-img {
+        background: #ffffff;
+        border-radius: 10px;
+        overflow: hidden;
+        height: 480px;
+        position: relative;
+        top: -127px;
+      }
+      &-content {
+        width: 100%;
+        max-width: 301px;
+        margin-right: 61px;
+        position: relative;
+      }
+      &__title {
+        font-style: normal;
+        font-weight: 700;
+        font-size: 22px;
+        line-height: 120%;
+        color: #ffffff;
+        margin-bottom: 14px;
+      }
+      &__desc {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 150%;
+        color: #ffffff;
+        opacity: 0.8;
+        margin-bottom: 32px;
+      }
+      &__count {
+        font-style: normal;
+        font-weight: 700;
+        font-size: 50px;
+        line-height: 120%;
+        display: flex;
+        align-items: center;
+        color: #ffffff;
+        opacity: 0.2;
+        margin-bottom: 32px;
+      }
+    }
+  }
+}
