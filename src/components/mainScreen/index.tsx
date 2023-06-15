@@ -14,7 +14,7 @@ const MainScreen = ({ title, desc }: IProps) => {
                 <div className="row main-screen-row">
                     <div>
                         <div className="main-screen-title">Аналитика Uzum</div>
-                        <div className="main-screen-desc">Сервис аналитики на основе браузерного расширения для Chome, Opera, Mozzila и Яндекс браузер.</div>
+                        <div className="main-screen-desc">Сервис аналитики на основе браузерного расширения для Chrome, Opera, Mozilla и Яндекс браузер.</div>
                         <div className="main-screen-btn-list">
                             <a href="https://lk.marketdb.org/" className='btn btn--orange'>Попробовать бесплатно</a>
                             <Link
