@@ -44,6 +44,7 @@ const Header: React.FC = ({ headerLayout }: IProps) => {
                             >
                                 О нас
                             </Link>
+                            <a href="https://vk.cc/coPhJM">Расширение</a>
                         </div>
                     </div>
                     <div className="header-right">
