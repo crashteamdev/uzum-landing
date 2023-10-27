@@ -1,11 +1,13 @@
 import './style.scss';
 
-interface IProps {
-    title: string,
-    desc: string
+interface DataItem {
+    title: string;
+    desc: string;
+    icon: string;
 }
 
-const data = [
+
+const data: DataItem[] = [
     {
         title: "Легко начать",
         desc: "Наша цель предоставить удобный и простой в понимании инструмент аналитики.",
@@ -28,7 +30,7 @@ const data = [
     },
 ]
 
-const ServicesScreen = () => {
+const ServicesScreen: React.FC = () => {
     return (
         <div className="services-screen">
             <div className="container">

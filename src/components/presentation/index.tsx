@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 
 import './style.scss';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -7,7 +7,15 @@ import { EffectFade } from 'swiper';
 import 'swiper/css/effect-fade';
 import ArrowIcon from '../icons/arrowIcon';
 
-const data = [
+interface DataItem {
+    count: string;
+    title: string;
+    desc: string;
+    img: string;
+}
+
+
+const data: DataItem[] = [
     {
         count: "01",
         title: "Аналитика конкурентов",
@@ -28,12 +36,12 @@ const data = [
     },
 ]
 
-const PresentationSlider = () => {
+const PresentationSlider:React.FC = () => {
 
     const swiperRef = useRef<SwiperType>();
 
     return (
-        <div className="presentation-slider" style={{ marginTop: "100px" }}>
+        <div className="presentation-slider" style={{ paddingTop: "100px" }}>
             <div className="container">
                 <div className="title">Инструменты аналитики</div>
                 <Swiper

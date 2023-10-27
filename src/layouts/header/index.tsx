@@ -1,18 +1,10 @@
 import { useState } from 'react';
-import { Link, animateScroll as scroll } from "react-scroll";
-import ArrowIcon from '../../components/icons/arrowIcon';
-import PhoneIcon from '../../components/icons/phoneIcon';
+import { Link } from "react-scroll";
 import './style.scss';
 import CloseIcon from '../../components/icons/close';
 import { TelegramIcon } from '../../components/icons/socialIcons';
 
-
-interface IProps {
-    headerLayout?: 1 | 2;
-}
-
-
-const Header: React.FC = ({ headerLayout }: IProps) => {
+const Header: React.FC = () => {
     const [burger, setBurger] = useState(false);
     return (
         <header className="header">
@@ -44,11 +36,11 @@ const Header: React.FC = ({ headerLayout }: IProps) => {
                             >
                                 О нас
                             </Link>
-                            <a target='_blank' href="https://vk.cc/coPhJM">Расширение</a>
+                            <a target='_blank' rel="noreferrer" href="https://vk.cc/coPhJM">Расширение</a>
                         </div>
                     </div>
                     <div className="header-right">
-                        <a className='header-phone' target='_blank' href="https://t.me/marketdbru">
+                        <a className='header-phone' target='_blank' rel="noreferrer" href="https://t.me/marketdbru">
                             <TelegramIcon color="#fff" />
                             Telegram
                         </a>
@@ -79,11 +71,11 @@ const Header: React.FC = ({ headerLayout }: IProps) => {
                         </div>
                     </div>
                     <div className="header-mob-menu-bottom">
-                        <a target='_blank' href="https://t.me/marketdbru" className='header-mob-menu-phone'>
+                        <a target='_blank' rel="noreferrer" href="https://t.me/marketdbru" className='header-mob-menu-phone'>
                             <TelegramIcon color="#fff" />
                             Telegram
                         </a>
-                        <a href="https://lk.marketdb.org/" className="btn">Войти</a>
+                        <a href="https://lk.marketdb.org/" target='_blank' rel="noreferrer" className="btn">Войти</a>
                     </div>
                 </div>
             }

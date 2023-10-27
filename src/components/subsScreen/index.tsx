@@ -2,11 +2,26 @@ import { useState } from 'react';
 import './style.scss';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-const SubsScreen = () => {
+interface ListItem {
+    title: string;
+}
+
+interface DataItem {
+    title: string;
+    desc: string;
+    price: number;
+    months: string | number;
+    discount?: number;
+    diccountMath: number;
+    free: boolean;
+    list: ListItem[],
+}
+
+const SubsScreen: React.FC = () => {
 
     const [threeMonth, setThreeMonth] = useState(false);
 
-    const data = [
+    const data: DataItem[] = [
         {
             title: "Бесплатный",
             desc: "Тариф выдается автоматически! Навсегда!",

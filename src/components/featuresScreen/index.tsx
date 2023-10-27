@@ -1,6 +1,6 @@
 import './style.scss';
 
-const FeaturesScreen = () => {
+const FeaturesScreen: React.FC = () => {
     return (
         <div className="features-screen">
             <div className="container">

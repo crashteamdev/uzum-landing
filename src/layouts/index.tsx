@@ -10,8 +10,6 @@ interface IProps {
 
 const Layout = ({
     children,
-    headerLayout,
-    footerLayout
 }: IProps) => {
     return (
         <>

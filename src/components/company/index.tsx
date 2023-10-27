@@ -1,7 +1,7 @@
 import './style.scss';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-const CompanySlider = () => {
+const CompanySlider: React.FC = () => {
     return (
         <div className="logotype-section">
             <Swiper

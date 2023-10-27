@@ -1,6 +1,6 @@
 import './style.scss';
 
-const AboutScreen = () => {
+const AboutScreen: React.FC = () => {
     return (
         <div className="about-screen" id="about">
             <div className="container">
