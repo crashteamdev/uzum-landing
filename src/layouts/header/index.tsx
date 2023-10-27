@@ -3,8 +3,16 @@ import { Link } from "react-scroll";
 import './style.scss';
 import CloseIcon from '../../components/icons/close';
 import { TelegramIcon } from '../../components/icons/socialIcons';
+import { useTranslation } from 'react-i18next';
 
 const Header: React.FC = () => {
+    const { t, i18n } = useTranslation();
+
+    const changeLanguage = (language: string) => {
+        i18n.changeLanguage(language);
+    }
+
+
     const [burger, setBurger] = useState(false);
     return (
         <header className="header">
@@ -46,6 +54,8 @@ const Header: React.FC = () => {
                         </a>
                         <a className='btn' href="https://lk.marketdb.org/">Войти</a>
                     </div>
+                    <button onClick={() => changeLanguage('ru')}>RU</button>
+                    <button onClick={() => changeLanguage('uz')}>UZ</button>
                     <div className="header-burger" onClick={() => setBurger(true)}>
                         <span></span>
                         <span></span>

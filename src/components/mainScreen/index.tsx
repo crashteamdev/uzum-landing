@@ -1,13 +1,15 @@
+import { useTranslation } from 'react-i18next';
 import './style.scss';
 import { Link } from "react-scroll";
 
 const MainScreen: React.FC = () => {
+    const { t } = useTranslation();
     return (
         <div className="main-screen">
             <div className="container">
                 <div className="row main-screen-row">
                     <div>
-                        <div className="main-screen-title">Аналитика Uzum</div>
+                        <div className="main-screen-title">{t('title')}</div>
                         <div className="main-screen-desc">Сервис аналитики на основе браузерного расширения для Chrome, Opera, Mozilla и Яндекс браузер.</div>
                         <div className="main-screen-btn-list">
                             <a href="https://lk.marketdb.org/" className='btn btn--orange'>Попробовать бесплатно</a>
