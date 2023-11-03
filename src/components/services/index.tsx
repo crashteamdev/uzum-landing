@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import './style.scss';
 
 interface DataItem {
@@ -6,36 +7,37 @@ interface DataItem {
     icon: string;
 }
 
-
-const data: DataItem[] = [
-    {
-        title: "Легко начать",
-        desc: "Наша цель предоставить удобный и простой в понимании инструмент аналитики.",
-        icon: "services-2.png"
-    },
-    {
-        title: "Достоверная аналитика",
-        desc: "Предоставляем клиентам наиболее близкую к реальности внешнюю аналитику.",
-        icon: "services-1.png"
-    },
-    {
-        title: "Современные IT решения",
-        desc: "Для нашей аналитики мы используем только передовые IT технологии.",
-        icon: "services-2.png"
-    },
-    {
-        title: "Доступные цены",
-        desc: "С нами легко начать изучать рынок и не переплачивать за монструозные и дорогие аналоги.",
-        icon: "services-1.png"
-    },
-]
-
 const ServicesScreen: React.FC = () => {
+    const { t } = useTranslation();
+
+    const data: DataItem[] = [
+        {
+            title: `${t('ServicesScreen.data.block1.title')}`,
+            desc: `${t('ServicesScreen.data.block1.desc')}`,
+            icon: "services-2.png"
+        },
+        {
+            title: `${t('ServicesScreen.data.block2.title')}`,
+            desc: `${t('ServicesScreen.data.block2.desc')}`,
+            icon: "services-1.png"
+        },
+        {
+            title: `${t('ServicesScreen.data.block3.title')}`,
+            desc: `${t('ServicesScreen.data.block3.desc')}`,
+            icon: "services-2.png"
+        },
+        {
+            title: `${t('ServicesScreen.data.block4.title')}`,
+            desc: `${t('ServicesScreen.data.block4.desc')}`,
+            icon: "services-1.png"
+        },
+    ]
+    
     return (
         <div className="services-screen">
             <div className="container">
-                <div className="title">Наши преимущества</div>
-                <div className="desc">Проанализируем каждый товар </div>
+                <div className="title">{t('ServicesScreen.title')}</div>
+                <div className="desc">{t('ServicesScreen.desc')}</div>
                 <div className="services-list">
                     {data.map(item => (
                         <div className="services-item">

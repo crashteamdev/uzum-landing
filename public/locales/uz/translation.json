@@ -1,3 +1,22 @@
 {
-    "title": "Uzum Analytics"
+    "mainScreen": {
+        "title": "Uzum Analytics",
+        "desc": "Chrome, Opera, Mozilla va Yandex brauzerlari uchun brauzer kengaytmasiga asoslangan Analytics xizmati.",
+        "btnFree": "Bepul sinab ko'ring",
+        "btnTariff": "Tariflarni bilib oling"
+    },
+    "presentationSlider": {
+        "slider1": {
+            "title": "Аналитика конкурентов",
+            "desc": "Проанализируем каждый товар в покупках ваших клиентов, дадим точную статистику"
+        },
+        "slider2": {
+            "title": "Товары конкурентов",
+            "desc": "Похожие товары конкурентов, работает на основе нашего собственного алгоритма и подбирает товары максимально похожие на ваш"
+        },
+        "slider3": {
+            "title": "Позиции в категориях",
+            "desc": "История позиций в категориях, будьте в курсе на какой позиции находилась ваша карточка, что на нее повлияло а так же отслеживайте позиции конкурентов"
+        }
+    }
 }

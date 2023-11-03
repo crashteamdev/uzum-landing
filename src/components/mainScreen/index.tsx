@@ -9,10 +9,10 @@ const MainScreen: React.FC = () => {
             <div className="container">
                 <div className="row main-screen-row">
                     <div>
-                        <div className="main-screen-title">{t('title')}</div>
-                        <div className="main-screen-desc">Сервис аналитики на основе браузерного расширения для Chrome, Opera, Mozilla и Яндекс браузер.</div>
+                        <div className="main-screen-title">{t('mainScreen.title')}</div>
+                        <div className="main-screen-desc">{t('mainScreen.desc')}</div>
                         <div className="main-screen-btn-list">
-                            <a href="https://lk.marketdb.org/" className='btn btn--orange'>Попробовать бесплатно</a>
+                            <a href="https://lk.marketdb.org/" className='btn btn--orange'>{t('mainScreen.btnFree')}</a>
                             <Link
                                 className='btn'
                                 to="tariff"
@@ -21,7 +21,7 @@ const MainScreen: React.FC = () => {
                                 offset={0}
                                 duration={500}
                             >
-                                Узнать тарифы
+                                {t('mainScreen.btnTariff')}
                             </Link>
                         </div>
                     </div>

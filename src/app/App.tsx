@@ -1,3 +1,4 @@
+import FeaturesScreen from "../components/featuresScreen";
 import AboutScreen from "../components/about";
 import AboutServicesScreen from "../components/aboutServicesScreen";
 import MainScreen from "../components/mainScreen";
@@ -6,6 +7,9 @@ import ServicesScreen from "../components/services";
 import SubsScreen from "../components/subsScreen";
 import Layout from "../layouts"
 import '../style.scss';
+import Posts from "../components/postsScreen";
+import CompanySlider from "../components/company";
+import DeveloperScreen from "../components/developerForm";
 
 // import './Translate/i18n';
 
@@ -13,17 +17,17 @@ const App: React.FC = () => {
     return (
         <Layout>
             <MainScreen />
-            {/* <CompanySlider /> */}
+            <CompanySlider />
             <PresentationSlider />
             <ServicesScreen />
             <AboutServicesScreen />
             <AboutScreen />
 
-            {/* <FeaturesScreen /> */}
+            <FeaturesScreen />
 
             <SubsScreen />
-            {/* <Posts /> */}
-            {/* <DeveloperScreen /> */}
+            <Posts />
+            <DeveloperScreen />
         </Layout>
     )
 }

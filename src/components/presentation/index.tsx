@@ -6,6 +6,7 @@ import { Swiper as SwiperType, Navigation, Pagination } from 'swiper';
 import { EffectFade } from 'swiper';
 import 'swiper/css/effect-fade';
 import ArrowIcon from '../icons/arrowIcon';
+import { useTranslation } from 'react-i18next';
 
 interface DataItem {
     count: string;
@@ -15,28 +16,29 @@ interface DataItem {
 }
 
 
-const data: DataItem[] = [
-    {
-        count: "01",
-        title: "Аналитика конкурентов",
-        desc: "Проанализируем каждый товар в покупках ваших клиентов, дадим точную статистику",
-        img: "img-1.png"
-    },
-    {
-        count: "02",
-        title: "Товары конкурентов",
-        desc: "Похожие товары конкурентов, работает на основе нашего собственного алгоритма и подбирает товары максимально похожие на ваш",
-        img: "img-2.png"
-    },
-    {
-        count: "03",
-        title: "Позиции в категориях",
-        desc: "История позиций в категориях, будьте в курсе на какой позиции находилась ваша карточка, что на нее повлияло а так же отслеживайте позиции конкурентов",
-        img: "img-3.png"
-    },
-]
-
 const PresentationSlider:React.FC = () => {
+    const { t } = useTranslation();
+
+    const data: DataItem[] = [
+        {
+            count: "01",
+            title: `${t('presentationSlider.slider1.title')}`,
+            desc: `${t('presentationSlider.slider1.desc')}`,
+            img: "img-1.png"
+        },
+        {
+            count: "02",
+            title: `${t('presentationSlider.slider2.title')}`,
+            desc: `${t('presentationSlider.slider2.desc')}`,
+            img: "img-2.png"
+        },
+        {
+            count: "03",
+            title: `${t('presentationSlider.slider3.title')}`,
+            desc: `${t('presentationSlider.slider3.desc')}`,
+            img: "img-3.png"
+        },
+    ]
 
     const swiperRef = useRef<SwiperType>();
 
