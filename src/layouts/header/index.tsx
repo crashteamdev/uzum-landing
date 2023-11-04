@@ -8,7 +8,7 @@ const Header: React.FC = () => {
     const [burger, setBurger] = useState(false);
     return (
         <>
-        <div className='top-bar'><a href="https://t.me/marketdbru/51" target='_blank'>Приглашаем на бесплатный вебинар «Знакомство с MarketDB» 5 ноября.</a></div>
+        <div className='top-bar'><a href="https://t.me/marketdbru/51" target='_blank'>Приглашаем на бесплатный вебинар «Знакомство с MarketDB» 5 ноября. Жми!</a></div>
         <header className="header">
             <div className="container">
                 <div className="row header-row">
