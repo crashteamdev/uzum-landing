@@ -2,12 +2,7 @@ import MailIcon from '../icons/mailIcon';
 import PhoneIcon from '../icons/phoneIcon';
 import './style.scss';
 
-interface IProps {
-    title: string,
-    desc: string
-}
-
-const DeveloperScreen = () => {
+const DeveloperScreen: React.FC = () => {
     return (
         <div className="developer-screen">
             <div className="container">

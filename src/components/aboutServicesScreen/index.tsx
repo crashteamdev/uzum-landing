@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './style.scss';
 
-const AboutServicesScreen = () => {
+const AboutServicesScreen: React.FC = () => {
 
     const [activeTab, setActiveTab] = useState("tabs1");
 

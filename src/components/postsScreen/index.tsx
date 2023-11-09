@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 
 import { Swiper as SwiperType, Navigation, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -6,7 +6,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import './style.scss';
 import ArrowIcon from '../icons/arrowIcon';
 
-const Posts = () => {
+const Posts: React.FC = () => {
     const swiperRef = useRef<SwiperType>();
 
     return (

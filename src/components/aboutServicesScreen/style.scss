@@ -1,36 +1,36 @@
 .about-services-screen {
-  background: linear-gradient(107.49deg, #3c7beb -0.68%, #79a9fe 100.79%);
+  background: linear-gradient(107.49deg, #203252 -0.68%, #79a9fe 100.79%);
   padding-top: 162px;
   padding-bottom: 77px;
-  @media(max-width: 992px) {
+  @media (max-width: 992px) {
     padding: 100px 0;
   }
-  @media(max-width: 475px) {
+  @media (max-width: 475px) {
     padding: 80px 0;
   }
   &-row {
     display: flex;
     align-items: center;
-    justify-content: end;
+    justify-content: flex-end;
   }
   &-bg {
     position: absolute;
     left: 0;
-    @media(max-width: 1440px) {
+    @media (max-width: 1440px) {
       width: 100%;
       max-width: 550px;
       img {
         width: 100%;
       }
     }
-    @media(max-width: 1180px) {
+    @media (max-width: 1180px) {
       display: none;
     }
   }
   &-column {
     width: 100%;
     max-width: 50%;
-    @media(max-width: 1180px) {
+    @media (max-width: 1180px) {
       max-width: 100%;
     }
   }
@@ -40,10 +40,12 @@
   }
   .tabs {
     margin-bottom: 30px;
+    width: 100%;
+    justify-content: space-between;
     &-item {
       padding: 13px 25px;
     }
-    @media(max-width: 1180px) {
+    @media (max-width: 1180px) {
       width: 100%;
       max-width: 582px;
     }
@@ -52,15 +54,15 @@
     display: flex;
     flex-wrap: wrap;
     column-gap: 20px;
-    @media(max-width: 1180px) {
+    @media (max-width: 1180px) {
       display: grid;
       grid-template-columns: repeat(12, [col-start] 1fr);
       column-gap: 20px;
     }
-    @media(max-width: 768px) {
+    @media (max-width: 768px) {
       grid-template-columns: repeat(8, [col-start] 1fr);
     }
-    @media(max-width: 475px) {
+    @media (max-width: 475px) {
       grid-template-columns: repeat(4, [col-start] 1fr);
     }
     .about-services-item {
@@ -72,11 +74,12 @@
       border: 1px solid #fff;
       width: 100%;
       max-width: 280px;
-      @media(max-width: 1180px) {
+      height: 140px;
+      @media (max-width: 1180px) {
         grid-column: span 6;
         max-width: 100%;
       }
-      @media(max-width: 768px) {
+      @media (max-width: 768px) {
         grid-column: span 4;
         max-width: 100%;
       }

@@ -1,13 +1,7 @@
 import './style.scss';
-import { Link, animateScroll as scroll } from "react-scroll";
-interface IProps {
-    title: string,
-    desc: string
-}
+import { Link } from "react-scroll";
 
-
-
-const MainScreen = ({ title, desc }: IProps) => {
+const MainScreen: React.FC = () => {
     return (
         <div className="main-screen">
             <div className="container">

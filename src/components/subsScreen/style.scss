@@ -1,5 +1,5 @@
 .subs-screen {
-  background: linear-gradient(107.49deg, #3c7beb -0.68%, #79a9fe 100.79%);
+  background: linear-gradient(107.49deg, #203252 -0.68%, #79a9fe 100.79%);
   padding-top: 100px;
   padding-bottom: 112px;
   @media (max-width: 992px) {
@@ -50,6 +50,9 @@
       border-radius: 10px;
       padding: 20px;
       position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       &-popular.btn.btn--orange {
         position: absolute;
         padding: 0;
