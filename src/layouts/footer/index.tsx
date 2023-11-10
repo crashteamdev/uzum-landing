@@ -1,3 +1,5 @@
+import MailIcon from '../../components/icons/mailIcon';
+import PhoneIcon from '../../components/icons/phoneIcon';
 import { VkIcon } from '../../components/icons/socialIcons';
 import { TelegramIcon } from '../../components/icons/socialIcons';
 import './style.scss';
@@ -45,16 +47,16 @@ const Footer: React.FC = () => {
                             </Link>
                             <a href="https://vk.cc/coPhJM">Расширение</a>
                     </div>
-                    {/* <div className="footer-bottom-contacts">
-                        <a href="mailto:info-email@marketbd.ru">
+                    <div className="footer-bottom-contacts">
+                        <a href="mailto:support@marketdb.ru">
                             <MailIcon color='white' />
-                            info@marketbd.ru
+                            support@marketdb.ru
                         </a>
-                        <a href="tel:8 800 999 99 99">
+                        <a href="tel:+7 937 373 54 69">
                             <PhoneIcon color="white" />
-                            8 800 999 99 99
+                            +7 937 373 54 69
                         </a>
-                    </div> */}
+                    </div>
                 </div>
             </div>
             <div className="footer-bottom-line"></div>

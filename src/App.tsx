@@ -1,28 +1,19 @@
-import AboutScreen from "./components/about";
-import AboutServicesScreen from "./components/aboutServicesScreen";
-import MainScreen from "./components/mainScreen";
-import PresentationSlider from "./components/presentation";
-import ServicesScreen from "./components/services";
-import SubsScreen from "./components/subsScreen";
-import Layout from "./layouts";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import './style.scss';
+import HomePage from "./pages/Home";
+import PolicyPage from "./pages/PolicyPage";
+import PrivacyPage from "./pages/PrivacyPage";
 
 const App: React.FC = () => {
     return (
-        <Layout>
-            <MainScreen />
-            {/* <CompanySlider /> */}
-            <PresentationSlider />
-            <ServicesScreen />
-            <AboutServicesScreen />
-            <AboutScreen />
-
-            {/* <FeaturesScreen /> */}
-
-            <SubsScreen />
-            {/* <Posts /> */}
-            {/* <DeveloperScreen /> */}
-        </Layout>
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/privacy" element={<PrivacyPage />} />
+                <Route path="/policy" element={<PolicyPage />} />
+                <Route path="*" element={<HomePage />} />
+            </Routes>
+        </BrowserRouter>
     )
 }
 
