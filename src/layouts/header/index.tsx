@@ -11,9 +11,24 @@ interface IProps {
 
 const Header: React.FC = ({ className }: IProps) => {
     const [burger, setBurger] = useState(false);
+    const [topBar, closeTopBar] = useState(true);
+
+    const handleClose = () => {
+        closeTopBar(false);
+        localStorage.setItem('topbar', 'false');
+    }
+
     return (
         <>
-        {/* <div className='top-bar'><a href="https://t.me/marketdbru/51" target='_blank'>Приглашаем на бесплатный вебинар «Знакомство с MarketDB» 5 ноября. Жми!</a></div> */}
+        {(localStorage.getItem('topbar') !== 'false' && topBar) &&
+            <div className='top-bar'>
+                <span>«Что продавать на Маркетплейсе? Ищем прибыльные товары через сервис аналитики MarketDB» 17 ноября!</span>
+                <div className='btn-group'>
+                    <a className='btn btn-active' href="https://t.me/+kc_09WBIkYA5ZGIy" rel='noreferrer' target='_blank' onClick={handleClose}>Записаться</a>
+                    <div className='btn' onClick={handleClose}>Закрыть</div>
+                </div>
+            </div>
+        }
         <header className={clsx("header", className)}>
             <div className="container">
                 <div className="row header-row">
