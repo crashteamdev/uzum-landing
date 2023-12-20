@@ -66,7 +66,7 @@ const Header: React.FC = ({ className }: IProps) => {
                             <TelegramIcon color="#fff" />
                             Напишите нам
                         </a>
-                        <a className='btn' href="https://lk.marketdb.org/">Войти</a>
+                        <a className='btn' href="https://space.marketdb.pro/">Войти</a>
                     </div>
                     <div className="header-burger" onClick={() => setBurger(true)}>
                         <span></span>
@@ -97,7 +97,7 @@ const Header: React.FC = ({ className }: IProps) => {
                             <TelegramIcon color="#fff" />
                             Напишите нам
                         </a>
-                        <a href="https://lk.marketdb.org/" target='_blank' rel="noreferrer" className="btn">Войти</a>
+                        <a href="https://space.marketdb.pro/" target='_blank' rel="noreferrer" className="btn">Войти</a>
                     </div>
                 </div>
             }

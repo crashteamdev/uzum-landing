@@ -146,7 +146,7 @@ const SubsScreen: React.FC = () => {
                                     ))}
                                 </div>
                             </div>
-                            <a href="https://lk.marketdb.org/" className='btn btn--orange'>Попробовать</a>
+                            <a href="https://space.marketdb.pro/" className='btn btn--orange'>Попробовать</a>
                         </SwiperSlide>
                     ))}
                 </Swiper>
