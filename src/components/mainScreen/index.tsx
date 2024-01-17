@@ -10,7 +10,7 @@ const MainScreen: React.FC = () => {
                         <div className="main-screen-title">Аналитика Uzum</div>
                         <div className="main-screen-desc">Сервис аналитики на основе браузерного расширения для Chrome, Opera, Mozilla и Яндекс браузер.</div>
                         <div className="main-screen-btn-list">
-                            <a href="https://lk.marketdb.org/" className='btn btn--orange'>Попробовать бесплатно</a>
+                            <a href="https://space.marketdb.pro/" className='btn btn--orange'>Попробовать бесплатно</a>
                             <Link
                                 className='btn'
                                 to="tariff"
