@@ -11,24 +11,24 @@ interface IProps {
 
 const Header: React.FC = ({ className }: IProps) => {
     const [burger, setBurger] = useState(false);
-    // const [topBar, closeTopBar] = useState(true);
+    const [topBar, closeTopBar] = useState(true);
 
-    // const handleClose = () => {
-    //     closeTopBar(false);
-    //     localStorage.setItem('topbar', 'false');
-    // }
+    const handleClose = () => {
+        closeTopBar(false);
+        localStorage.setItem('topbar#1', 'false');
+    }
 
     return (
         <>
-        {/* {(localStorage.getItem('topbar') !== 'false' && topBar) &&
+        {(localStorage.getItem('topbar#1') !== 'false' && topBar) &&
             <div className='top-bar'>
-                <span>«Что продавать на Маркетплейсе? Ищем прибыльные товары через сервис аналитики MarketDB» 17 ноября!</span>
+                <span>КАК СЕЛЛЕРУ ВЫЙТИ НА 1-2 МЛРД СУМ НА UZUM?💰 20 января в Ташкенте!</span>
                 <div className='btn-group'>
-                    <a className='btn btn-active' href="https://t.me/+kc_09WBIkYA5ZGIy" rel='noreferrer' target='_blank' onClick={handleClose}>Записаться</a>
+                    <a className='btn btn-active' href="https://forms.gle/BFNBtN5ohVruuJqo8" rel='noreferrer' target='_blank' onClick={handleClose}>Записаться</a>
                     <div className='btn' onClick={handleClose}>Закрыть</div>
                 </div>
             </div>
-        } */}
+        }
         <header className={clsx("header", className)}>
             <div className="container">
                 <div className="row header-row">
