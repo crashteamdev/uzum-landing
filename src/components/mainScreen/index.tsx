@@ -8,7 +8,7 @@ const MainScreen: React.FC = () => {
                 <div className="row main-screen-row">
                     <div>
                         <div className="main-screen-title">Аналитика Uzum</div>
-                        <div className="main-screen-desc">Сервис аналитики на основе браузерного расширения для Chrome, Opera, Mozilla и Яндекс браузер.</div>
+                        <div className="main-screen-desc">Сервис аналитики на основе браузерного расширения для Chrome, Opera, Mozilla и Яндекс браузер. <br/>Принимаем платежи с Узбекистана!</div>
                         <div className="main-screen-btn-list">
                             <a href="https://space.marketdb.pro/" className='btn btn--orange'>Попробовать бесплатно</a>
                             <Link

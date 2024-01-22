@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 interface ListItem {
     title: string;
+    new?: boolean;
 }
 
 interface DataItem {
@@ -23,16 +24,16 @@ const SubsScreen: React.FC = () => {
 
     const data: DataItem[] = [
         {
-            title: "Бесплатный",
-            desc: "Тариф выдается автоматически! Навсегда!",
+            title: "Демо",
+            desc: "Тариф выдается по запросу через тех.поддержку.",
             price: 0,
             months: threeMonth ? 3 : '',
             diccountMath: 0,
             free: true,
             list: [
                 {title: 'Доступ к расширению'},
-                {title: '3 дня периода аналитики'},
-                {title: 'История позиций товара'},
+                {title: '30 дня периода аналитики'},
+                {title: 'Включен весь базовый тариф'},
             ]
         },
         {
@@ -46,8 +47,15 @@ const SubsScreen: React.FC = () => {
             list: [
                 {title: 'Доступ к расширению'},
                 {title: '30 дней периода аналитики'},
+                {title: 'Общая аналитика по категориям'},
+                {title: 'Общая аналитика по магазинам'},
+                {title: 'Магазины продавца'},
                 {title: 'История позиций товара'},
-                {title: '3 отчета по магазинам в сутки'}
+                {title: 'Отчеты по магазинам'},
+                {
+                    title: 'Сервис автоматического изменения цен',
+                    new: true
+                }
             ]
         },
         {
@@ -62,9 +70,16 @@ const SubsScreen: React.FC = () => {
                 {title: 'Доступ к расширению'},
                 {title: '30 / 60 / 90 дней периода аналитики'},
                 {title: 'История позиций товара'},
-                {title: '6 отчетов Excel по магазинам в сутки'},
-                {title: '2 отчета Excel по категориям в сутки'},
+                {title: 'Отчеты Excel по магазинам в сутки'},
+                {title: 'Отчета Excel по категориям в сутки'},
+                {title: 'Общая аналитика по категориям'},
+                {title: 'Общая аналитика по магазинам'},
+                {title: 'Магазины продавца'},
                 {title: 'Приоритетная поддержка'},
+                {
+                    title: 'Сервис автоматического изменения цен',
+                    new: true
+                }
             ]
         },
         {
@@ -79,9 +94,16 @@ const SubsScreen: React.FC = () => {
                 {title: 'Доступ к расширению'},
                 {title: '30 / 60 / 90 / 120 дней периода аналитики'},
                 {title: 'История позиций товара'},
-                {title: '15 отчетов Excel по магазинам в сутки'},
-                {title: '4 отчета Excel по категориям в сутки'},
+                {title: 'Общая аналитика по категориям'},
+                {title: 'Общая аналитика по магазинам'},
+                {title: 'Магазины продавца'},
+                {title: 'Отчетов Excel по магазинам в сутки'},
+                {title: 'Отчета Excel по категориям в сутки'},
                 {title: 'Приоритетная поддержка'},
+                {
+                    title: 'Сервис автоматического изменения цен',
+                    new: true
+                }
             ]
         }
     ]
@@ -130,7 +152,7 @@ const SubsScreen: React.FC = () => {
                                 <div className="subs-item__title">{item.title}</div>
                                 <div className="subs-item__desc">{item.desc}</div>
                                 <div className="subs-item__name">
-                                    {!item.free ? <span>{threeMonth ? Math.round((item.price * 3 - (item.price * 3 * 0.10)) - 1) : item.price} $</span> : <span>Бесплатно</span>}
+                                    {!item.free ? <span>{threeMonth ? Math.round((item.price * 3 - (item.price * 3 * 0.10)) - 1) : item.price} $</span> : <span>На 5 дней</span>}
                                     
                                     {!item.free && (
                                         !threeMonth ?
@@ -142,7 +164,10 @@ const SubsScreen: React.FC = () => {
                                 </div>
                                 <div className="subs-advantages">
                                     {item.list.map(itemSubs => (
-                                        <div className="subs-advantages__item active">{itemSubs.title}</div>
+                                        <div className="subs-advantages__item active">
+                                            {itemSubs.title}
+                                            {itemSubs.new && <span className='subs-advantages__item--new'>Новое!</span>}
+                                        </div>
                                     ))}
                                 </div>
                             </div>

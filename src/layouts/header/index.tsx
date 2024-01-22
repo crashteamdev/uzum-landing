@@ -22,9 +22,9 @@ const Header: React.FC = ({ className }: IProps) => {
         <>
         {(localStorage.getItem('topbar#1') !== 'false' && topBar) &&
             <div className='top-bar'>
-                <span>КАК СЕЛЛЕРУ ВЫЙТИ НА 1-2 МЛРД СУМ НА UZUM?💰 20 января в Ташкенте!</span>
+                <span>Впервые у нас? Запроси доступ к демо-тарифу на 5 дней!</span>
                 <div className='btn-group'>
-                    <a className='btn btn-active' href="https://forms.gle/BFNBtN5ohVruuJqo8" rel='noreferrer' target='_blank' onClick={handleClose}>Записаться</a>
+                    <a className='btn btn-active' href="https://t.me/marketdbchat" rel='noreferrer' target='_blank' onClick={handleClose}>Написать</a>
                     <div className='btn' onClick={handleClose}>Закрыть</div>
                 </div>
             </div>
@@ -62,7 +62,7 @@ const Header: React.FC = ({ className }: IProps) => {
                         </div>
                     </div>
                     <div className="header-right">
-                        <a className='header-phone' target='_blank' rel="noreferrer" href="https://t.me/marketdbru">
+                        <a className='header-phone' target='_blank' rel="noreferrer" href="https://t.me/marketdbchat">
                             <TelegramIcon color="#fff" />
                             Напишите нам
                         </a>
