@@ -31,7 +31,7 @@ const Footer: React.FC = ({ footerLayout }: IProps) => {
                         <a href="/">Главная</a>
                         <Link href="/">Тарифы</Link>
                         <Link href="/">О нас</Link>
-                        <a href="https://vk.cc/coPhwU">
+                        <a href="https://chromewebstore.google.com/detail/marketdb-%D0%B0%D0%BD%D0%B0%D0%BB%D0%B8%D1%82%D0%B8%D0%BA%D0%B0-uzumuz/blgbandfopjlfnfpgknfmdkboekolpcc">
                             Расширение
                         </a>
                     </div>

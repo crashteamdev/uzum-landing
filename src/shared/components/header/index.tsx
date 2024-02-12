@@ -52,7 +52,7 @@ const Header: FC = ({ className }: IProps) => {
                                 >
                                     О нас
                                 </Link>
-                                <Link target='_blank' rel="noreferrer" href="https://vk.cc/coPhwU">
+                                <Link target='_blank' rel="noreferrer" href="https://chromewebstore.google.com/detail/marketdb-%D0%B0%D0%BD%D0%B0%D0%BB%D0%B8%D1%82%D0%B8%D0%BA%D0%B0-uzumuz/blgbandfopjlfnfpgknfmdkboekolpcc">
                                     Расширение
                                 </Link>
                             </div>
