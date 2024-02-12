@@ -1,0 +1,1 @@
+export const APISRMLEAD = "https://api.marketdb.pro/gateway/crm/lead";
