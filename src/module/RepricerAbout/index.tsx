@@ -30,7 +30,7 @@ const validate = (values: Values): FormikErrors<Values> => {
   
     if (!values.phone) {
       errors.phone = 'Required';
-    } else if (values.phone.length > 20) {
+    } else if (!/^\+?\d{11,13}$/.test(values.phone)) {
       errors.phone = 'Must be 20 characters or less';
     }
   
@@ -137,7 +137,7 @@ const RepricerAbout = () => {
                                     <input 
                                         id="phone"
                                         type="text" 
-                                        placeholder='+7 (_ _ _) _ _ _   _ _  _ _' 
+                                        placeholder='Введите номер телефона' 
                                         onChange={formik.handleChange}
                                         value={formik.values.phone}
                                         className={clsx("", {
