@@ -3,4 +3,5 @@ export interface ValuesForm {
     email: string;
     phone: string;
     comment?: string;
+    nameServices?: string;
 }

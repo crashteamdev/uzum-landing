@@ -18,36 +18,7 @@ import { APISRMLEAD } from '@/shared/config';
 import { v4 as uuidv4 } from 'uuid';
 import { useState } from 'react';
 import PhoneInput from 'react-phone-number-input/input';
-
-interface Values {
-    name: string;
-    email: string;
-    phone: string;
-    nameServices: string;
-}
-
-const validate = (values: Values): FormikErrors<Values> => {
-    const errors: FormikErrors<Values> = {};
-    if (!values.name) {
-      errors.name = 'Required';
-    } else if (values.name.length > 15) {
-      errors.name = 'Must be 15 characters or less';
-    }
-  
-    if (!values.phone) {
-      errors.phone = 'Required';
-    } else if (!/^\+?\d{11,13}$/.test(values.phone)) {
-      errors.phone = 'Must be 20 characters or less';
-    }
-  
-    if (!values.email) {
-      errors.email = 'Required';
-    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-      errors.email = 'Invalid email address';
-    }
-  
-    return errors;
-};
+import { validate } from '@/shared/hooks/useValidate';
 
 const SellServices = () => {
     const [success, setSuccess] = useState(false);
