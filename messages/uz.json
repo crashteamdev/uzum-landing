@@ -1,0 +1,146 @@
+{
+    "header": {
+        "home": "Bosh sahifa",
+        "tariff": "Tariflar",
+        "about": "Biz haqimizda",
+        "plugin": "Kengaytma",
+        "chat": "Sotuvchilar chati",
+        "login": "Kirish"
+    },
+    "index": {
+        "firstSection": {
+            "title": "Uzum Market analitikasi",
+            "desc": "Uzum Market brauzer kengaytmasi asosida tuzilgan analitika xizmati, Chrome, Opera, Mozilla va Yandex brauzerlarida ishlaydi.",
+            "imgAlt": "Uzum Market analitikasi"
+        }
+    },
+    "btn": {
+        "free": "Bepul sinab ko'ring",
+        "tariff": "Tariflarni bilib oling"
+    },
+    "seo": {
+        "title": "Uzum Market analitikasi"
+    },
+    "footer": {
+        "privacy": "Maxfiylik va ma'lumotlarni ishlash siyosati",
+        "policy": "Qaytarish siyosati"
+    },
+    "form": {
+        "title": "Bepul sinab ko'ring",
+        "desc": "Arizangizni qoldiring, biz 5 kunlik bepul kirishni ochamiz.",
+        "phone": "Telefon raqamingizni kiriting",
+        "name": "Ismingizni kiriting",
+        "btn": "Arizani yuborish",
+        "thanks": {
+            "title": "Arizangiz uchun rahmat!",
+            "desc": "Tez orada siz bilan bog'lanamiz."
+        },
+        "error": {
+            "title": "Noma'lum xatolik! Texnik yordamga murojaat qiling."
+        },
+        "privacy": {
+            "one": "Tugmani bosing, siz",
+            "two": "shaxsiy ma'lumotlaringizni ishlashga rozilik berasiz"
+        }
+    },
+    "PresentationSlider": {
+        "title": "Analitika vositalari"
+    },
+    "PresentationSliderList": {
+        "0": {
+            "title": "Rakiplar analitikasi",
+            "desc": "Mijozlaringizning har bir mahsulotini tekshirib chiqamiz, aniq statistikani beramiz",
+            "img": "img-1.png",
+            "count": "01"
+        },
+        "1": {
+            "title": "Rakiplar mahsulotlari",
+            "desc": "Rakiplarning o'xshash mahsulotlari, bizning o'z algoritmimiz asosida ishlaydi va sizning mahsulotingizga qo'shimcha o'xshash mahsulotlarni tanlaydi",
+            "img": "img-2.png",
+            "count": "02"
+        },
+        "2": {
+            "title": "Kategoriyalardagi pozitsiyalar",
+            "desc": "Kategoriyalardagi pozitsiya tarixi, karta qaysi pozitsiyada bo'lganini bilib oling, uchun nima etkazganligini hamda rakiplaringizning pozitsiyalarini kuzating",
+            "img": "img-3.png",
+            "count": "03"
+        },
+        "3": {
+            "title": "Do'kon analitikasi",
+            "desc": "Rakip do'konida ko'p ko'rsatgichlari, Excel formatidagi hisobotlar. Shuningdek sotuvchi boshqa do'konlar",
+            "img": "img-4.png",
+            "count": "04"
+        },
+        "4": {
+            "title": "Kategoriyalar analitikasi",
+            "desc": "Turli ko'rsatkichlar kategoriyasi uchun, kerakli nishani qidirish imkoniyati. Shuningdek Excel formatidagi hisobotlar.",
+            "img": "img-5.png",
+            "count": "05"
+        },
+        "5": {
+            "title": "Katalog analitikasi",
+            "desc": "Sotuvlar haqidagi ma'lumotlar, sotuvchilar to'g'risida katalogda to'liq ishlaydi! Barcha saytda ishlaydi.",
+            "img": "img-6.png",
+            "count": "06"
+        }
+    },
+    "Services": {
+        "title": "Bizga ishonishingiz uchun nima sabab?",
+        "desc": "Bizning mutaxassislar jamoasi sizga aniq va foydali natijalarni taqdim etish uchun yuqori darajadagi ma'lumotlar tahlil usullaridan foydalanadi."
+    },    
+    "ServicesList": {
+        "0": {
+            "title": "Oson boshlash",
+            "desc": "Maqsadimiz, foydalanishga oson va tushunadigan analitika vositasini taqdim etish.",
+            "icon": "services-2.png"
+        },
+        "1": {
+            "title": "Ishonchli analitika",
+            "desc": "Mijozlar uchun haqiqiyga yaqinroq tajriba hisoblanadigan tashqi analitikani taqdim etamiz.",
+            "icon": "services-1.png"
+        },
+        "2": {
+            "title": "Zamonaviy IT yechimlari",
+            "desc": "Bizning analitikamiz uchun faqat eng so'nggi IT texnologiyalardan foydalanamiz.",
+            "icon": "services-2.png"
+        },
+        "3": {
+            "title": "Mavjud narxlar",
+            "desc": "Bozorda o'rganishga osonroq boshlash va monstrli va qimmatli analoglar uchun ortiqcha to'lovlarni qilmaslik.",
+            "icon": "services-1.png"
+        }
+    },
+    "Faq": {
+        "title": "Tez-tez so'raladigan savollar",
+        "desc": "Tez-tez so'raladigan savollar ro'yxatini yig'ib, ularning javoblari bilan joylashtirdik. Agar siz o'zingizning savolingizga javob topolmagan bo'lsangiz, biz bilan bog'lanib, ma'lumotni so'rab ko'ring!",
+        "formattedAccordion": [
+            {
+                "id": 1,
+                "name": "Sizning xizmatni xarid qilishdan oldin sinab ko'rish mumkinmi?",
+                "content": "Ha, bizning xizmatimizni sinab ko'rish uchun, sizning demob-ruxsat uchun ariza qoldirishingiz kerak. Keyin, bizning boshqaruvchimiz siz bilan bog'lanadi va demob-tarifga kirish beradi va qiziqtirgan savollaringizga javob beradi, shuningdek, xizmat ishlashini tushunishda yordam beradi."
+            },
+            {
+                "id": 2,
+                "name": "Sizning analitik ma'lumotlaringiz to'g'ri?",
+                "content": "Biz ma'lumotlarni kuniga 3 marta to'plashni qilamiz. Har kuni, kerak bo'lsa, platformalardagi o'zgarishlarni kuzatamiz, bu, kerak bo'lsa, aylanib ketadigan algoritmlarni tez o'zgartirishga yordam beradi. Barchasi, bizning mijozlarimizga eng to'g'ri ma'lumotlarni taqdim etishga yordam beradi."
+            },
+            {
+                "id": 3,
+                "name": "Boshqa mamlakatlar kredit kartalari qabul qilasizmi?",
+                "content": "Ha, hozirda biz Rossiya va O'zbekiston kredit kartalarini qabul qilamiz."
+            },
+            {
+                "id": 4,
+                "name": "Men funksionaldan qondim, nima qilish kerak?",
+                "content": "Agar sizga bizning xizmatimiz funksionalidan yetarli bo'lmaganini deb hisoblasangiz, siz bizga to'g'ri-to'g'ri yozib, o'zingizning fikringizni tushuntirishingiz mumkin. Biz esa, sizning fikringizni eshitib oling va qolgan funksionalni qo'shib qo'yamiz. Biz har doim mijozlarimiz takliflariga ochiqmiz!"
+            },
+            {
+                "id": 5,
+                "name": "Men kurs muallifi / bloger / biznes egasi",
+                "content": "Biz har doim hamkorlikka ochiqmiz, agar siz bloger yoki kurs muallifi bo'lsangiz, biz bilan bog'laning va sizning o'quvchilaringiz yoki obunachilaringiz uchun maqbul shartlarni muzokaralaymiz. Agar siz b2b yo'nalishda ishlaydigan tadbirkor bo'lsangiz va sizning xizmatlaringiz bazar joylaridagi sotuvchilar uchun taqdim etilgan bo'lsa, bizga yozib, siz bilan hamkorlikni muzokaralaymiz!"
+            }
+        ]
+    }
+    
+    
+}

@@ -7,6 +7,7 @@ import Image from 'next/image';
 import { TelegramIcon } from '../icons/socialIcons';
 import CloseIcon from '../icons/close';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 
 
 interface IProps {
@@ -22,47 +23,41 @@ const Header: FC = ({ className }: IProps) => {
         localStorage.setItem('topbar1', 'false');
     }
 
+    const header = useTranslations("header");
+    const seo = useTranslations("seo");
+
     return (
         <>
-            {/* {(localStorage.getItem('topbar1') !== 'false' && topBar) &&
-                <div className='top-bar'>
-                    <span>«Что продавать на Маркетплейсе? Ищем прибыльные товары через сервис аналитики MarketDB» сегодня в 18:00!</span>
-                    <div className='btn-group'>
-                        <a className='btn btn-active' href="https://t.me/+NtOosCLh5d9jNmVi" rel='noreferrer' target='_blank' onClick={handleClose}>Записаться</a>
-                        <div className='btn' onClick={handleClose}>Закрыть</div>
-                    </div>
-                </div>
-            } */}
             <header className={clsx("header z-[9999]", className)}>
                 <div className="container">
                     <div className="row header-row">
                         <div className='header-left'>
                             <Link href="/" className="header-logo">
-                                <Image fill src="/images/logo.svg" alt="" />
+                                <Image fill src="/images/logo.svg" alt={seo("title")} />
                             </Link>
                             <div className="header-menu">
-                                <Link className='active' href="/">Главная</Link>
+                                <Link className='active' href="/">{header("home")}</Link>
                                 <Link
                                     href="/"
                                 >
-                                    Тарифы
+                                    {header("tariff")}
                                 </Link>
                                 <Link
                                     href="/"
                                 >
-                                    О нас
+                                    {header("about")}
                                 </Link>
                                 <Link target='_blank' rel="noreferrer" href="https://chromewebstore.google.com/detail/marketdb-%D0%B0%D0%BD%D0%B0%D0%BB%D0%B8%D1%82%D0%B8%D0%BA%D0%B0-uzumuz/blgbandfopjlfnfpgknfmdkboekolpcc">
-                                    Расширение
+                                    {header("plugin")}
                                 </Link>
                             </div>
                         </div>
                         <div className="header-right">
                             <Link className='header-phone' target='_blank' rel="noreferrer" href="https://t.me/marketdbru">
                                 <TelegramIcon color="#fff" />
-                                Чат продавцов
+                                {header("chat")}
                             </Link>
-                            <Link className='btn' href="https://space.marketdb.pro/">Войти</Link>
+                            <Link className='btn' href="https://space.marketdb.pro/">{header("login")}</Link>
                         </div>
                         <div className="header-burger" onClick={() => setBurger(true)}>
                             <span></span>
@@ -76,24 +71,24 @@ const Header: FC = ({ className }: IProps) => {
                         <div>
                             <div className="header-mob-menu-top">
                                 <Link href="/" className="header-logo">
-                                    <Image fill src="/images/logo-mob.svg" alt="" />
+                                    <Image fill src="/images/logo-mob.svg" alt={seo("title")} />
                                 </Link>
                                 <div onClick={() => setBurger(false)}>
                                     <CloseIcon color='#1A1A1A' />
                                 </div>
                             </div>
                             <div className="header-mob-menu-content">
-                                <Link href="/">Главная</Link>
-                                <Link href="/">Тарифы</Link>
-                                <Link href="/">О нас</Link>
+                                <Link href="/">{header("home")}</Link>
+                                <Link href="/">{header("tariff")}</Link>
+                                <Link href="/">{header("about")}</Link>
                             </div>
                         </div>
                         <div className="header-mob-menu-bottom">
                             <Link target='_blank' rel="noreferrer" href="https://t.me/marketdbru" className='header-mob-menu-phone'>
                                 <TelegramIcon color="#fff" />
-                                Чат продавцов
+                                {header("chat")}
                             </Link>
-                            <Link target='_blank' rel="noreferrer" href="https://space.marketdb.pro/" className="btn">Войти</Link>
+                            <Link target='_blank' rel="noreferrer" href="https://space.marketdb.pro/" className="btn">{header("login")}</Link>
                         </div>
                     </div>
                 }

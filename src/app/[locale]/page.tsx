@@ -1,5 +1,5 @@
+'use client';
 import dynamic from 'next/dynamic'
-
 import MainScreen from '@/module/mainScreen'
 
 const SubsScreen = dynamic(() => import('@/module/subsScreen'));

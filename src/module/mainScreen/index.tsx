@@ -14,6 +14,7 @@ import { APISRMLEAD } from '@/shared/config';
 
 import { v4 as uuidv4 } from 'uuid';
 import { useState } from 'react';
+import {useTranslations} from 'next-intl';
 
 interface Values {
     name: string;
@@ -86,23 +87,27 @@ const MainScreen: React.FC = () => {
             });
         },
     });
+    const index = useTranslations("index");
+    const btn = useTranslations("btn");
+    const form = useTranslations("form");
+
     return (
         <>
             <div className="main-screen developer">
                 <div className="container relative z-50">
                     <div className="row main-screen-row">
                         <div>
-                            <div className="main-screen-title">Аналитика <br /> Uzum Market</div>
+                            <div className="main-screen-title">{index('firstSection.title')}</div>
                             <div className="main-screen-desc">
-                                Сервис аналитики Uzum Market на основе браузерного расширения для Chrome, Opera, Mozilla и Яндекс браузер.
-                                </div>
+                                {index('firstSection.desc')}
+                            </div>
                             <div className="main-screen-btn-list">
-                                <Link href={""} onClick={() => handleToggle()} className='btn btn--orange'>Пробовать бесплатно</Link>
+                                <Link href={""} onClick={() => handleToggle()} className='btn btn--orange'>{btn('free')}</Link>
                                 <Link
                                     href="/"
                                     className='btn'
                                 >
-                                    Узнать тарифы
+                                    {btn('tariff')}
                                 </Link>
                             </div>
                         </div>
@@ -110,8 +115,7 @@ const MainScreen: React.FC = () => {
                 </div>
                 <div className='absolute right-0 w-full h-full flex justify-end items-center max-[992px]:hidden'>
                     <div className='w-full max-w-[880px] h-[668px] relative max-[1400px]:max-w-[600px] max-[1400px]:h-[500px]'>
-                        <Image blurDataURL="URL"
-        placeholder="blur" fill className='' src="/images/inform.png" alt="Аналитика KazanEpxress / Магнит Маркет" />
+                        <Image blurDataURL="URL" placeholder="blur" fill className='' src="/images/inform.png" alt={index('firstSection.imgAlt')} />
                     </div>
                 </div>
             </div>
@@ -123,14 +127,14 @@ const MainScreen: React.FC = () => {
                 <div className='form w-full !max-w-full !h-full'>
                     {!success ?
                         <>
-                            <div className="form-title">Протестируй бесплатно</div>
-                            <div className="form-desc w-full max-w-[400px]">Оставь заявку, и мы откроем бесплатный доступ к сервису на 5 дней.</div>
+                            <div className="form-title">{form("title")}</div>
+                            <div className="form-desc w-full max-w-[400px]">{form("desc")}</div>
                             <form onSubmit={formik.handleSubmit}>
                                 <label htmlFor="name" className='w-full'>
                                     <input
                                         id="name"
                                         type="text" 
-                                        placeholder='Имя' 
+                                        placeholder={form("name")} 
                                         onChange={formik.handleChange}
                                         value={formik.values.name}
                                         className={clsx("", {
@@ -140,7 +144,7 @@ const MainScreen: React.FC = () => {
                                     <input 
                                         id="phone"
                                         type="text" 
-                                        placeholder='Введите номер телефона' 
+                                        placeholder={form("phone")} 
                                         onChange={formik.handleChange}
                                         value={formik.values.phone}
                                         className={clsx("", {
@@ -162,19 +166,19 @@ const MainScreen: React.FC = () => {
                                     />
                                 </label>
                                 <div className='form-send'>
-                                    <button type="submit" className="btn btn--orange">Отправить заявку</button>
-                                    <span>Нажимая на кнопку, вы даете <a href="/privacy">согласие на обработку своих персональных данных</a></span>
+                                    <button type="submit" className="btn btn--orange">{form("btn")}</button>
+                                    <span>{form("privacy.one")} <a href="/privacy">{form("privacy.two")}</a></span>
                                 </div>
                             </form>
-                            {error && <div className='mt-4 text-[red]'>Неизвестная ошибка! Обратитесь в тех.поддержку.</div>}
+                            {error && <div className='mt-4 text-[red]'>{form("error.title")}</div>}
                         </>
                     :
                         <div className='flex flex-col justify-center items-center'>
                             <div className='mb-[30px]'>
                                 <Image src="/images/icon/success.png" width={68} height={68} alt="Успешно" />
                             </div>
-                            <div className="form-title">Спасибо за заявку!</div>
-                            <div className="form-desc">Мы свяжемся с вами в ближайшее время.</div>
+                            <div className="form-title">{form("thanks.title")}</div>
+                            <div className="form-desc">{form("thanks.desc")}</div>
                         </div>
                     }
 

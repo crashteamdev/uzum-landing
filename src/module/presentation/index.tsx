@@ -8,6 +8,7 @@ import ArrowIcon from '@/shared/components/icons/arrowIcon';
 import Image from 'next/image';
 import { Navigation, Pagination, EffectFade } from 'swiper/modules';
 import { type Swiper as SwiperType } from "swiper";
+import { useTranslations } from 'next-intl';
 
 interface DataItem {
     count: string;
@@ -56,13 +57,16 @@ const data: DataItem[] = [
 ]
 
 const PresentationSlider: React.FC = () => {
-
     const swiperRef = useRef<SwiperType>();
 
+    const t = useTranslations("PresentationSlider");
+    const PresentationSliderList = useTranslations("PresentationSliderList");
+    const seo = useTranslations("seo");
+    
     return (
         <div className="presentation-slider" style={{ paddingTop: "100px" }}>
             <div className="container">
-                <div className="title">Инструменты аналитики</div>
+                <div className="title">{t("title")}</div>
                 <Swiper
                     modules={[Pagination, Navigation, EffectFade]}
                     slidesPerView={1}
@@ -78,10 +82,10 @@ const PresentationSlider: React.FC = () => {
                     {data.map((item, key) => (
                         <SwiperSlide key={key} className='presentation-swiper-item'>
                             <div className="presentation-swiper-item-content">
-                                <div className="presentation-swiper-item__count">{item.count}</div>
+                                <div className="presentation-swiper-item__count">{PresentationSliderList(`${key}.count`)}</div>
                                 <div>
-                                    <div className="presentation-swiper-item__title">{item.title}</div>
-                                    <div className="presentation-swiper-item__desc">{item.desc}</div>
+                                    <div className="presentation-swiper-item__title">{PresentationSliderList(`${key}.title`)}</div>
+                                    <div className="presentation-swiper-item__desc">{PresentationSliderList(`${key}.desc`)}</div>
                                 </div>
                                 <div className="presentation-swiper-item-arrows">
                                     <div onClick={() => swiperRef.current?.slidePrev()} className="slider-navigation__arrow slider-navigation__arrow-prev">
@@ -93,7 +97,7 @@ const PresentationSlider: React.FC = () => {
                                 </div>
                             </div>
                             <div className="presentation-swiper-item-img">
-                                <Image width={738} height={480} src={`/images/presentation/${item.img}`} alt="" />
+                                <Image width={738} height={480} src={`/images/presentation/${item.img}`} alt={seo("title")} />
                             </div>
                         </SwiperSlide>
                     ))}

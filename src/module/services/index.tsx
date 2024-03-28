@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import './style.scss';
+import { useTranslations } from 'next-intl';
 
 interface DataItem {
     title: string;
@@ -31,19 +32,24 @@ const data: DataItem[] = [
 ]
 
 const ServicesScreen: React.FC = () => {
+
+    const Services = useTranslations("Services");
+    const ServicesList = useTranslations("ServicesList");
+    const seo = useTranslations("seo");
+
     return (
         <div className="services-screen">
             <div className="container">
-                <div className="title">Почему нам стоит доверять?</div>
-                <div className="desc">Наша команда экспертов использует передовые методы анализа данных для предоставления вам точных и полезных результатов.</div>
+                <div className="title">{Services("title")}</div>
+                <div className="desc">{Services("desc")}</div>
                 <div className="services-list">
                     {data.map((item, key) => (
                         <div key={key} className="services-item">
                             <div className="services-item__icon">
-                                <Image width={26} height={26} src={`/images/icon/${item.icon}`} alt="" />
+                                <Image width={26} height={26} src={`/images/icon/${item.icon}`} alt={seo("title")} />
                             </div>
-                            <div className="services-item__title">{item.title}</div>
-                            <div className="services-item__desc">{item.desc}</div>
+                            <div className="services-item__title">{ServicesList(`${key}.title`)}</div>
+                            <div className="services-item__desc">{ServicesList(`${key}.desc`)}</div>
                         </div>
                     ))}
                 </div>

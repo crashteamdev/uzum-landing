@@ -12,6 +12,7 @@ import { APISRMLEAD } from '@/shared/config';
 import { v4 as uuidv4 } from 'uuid';
 import { AppModal } from '@/shared/components/AppModal';
 import { useModal } from '@/shared/hooks/useModal';
+import { useTranslations } from "next-intl";
 
 interface Values {
     name: string;
@@ -87,6 +88,9 @@ const DeveloperScreen: React.FC = () => {
             });
         },
     });
+
+    const FeedbackForm = useTranslations("FeedbackForm");
+
     return (
         <>
             <div className="developer-screen">
@@ -118,7 +122,7 @@ const DeveloperScreen: React.FC = () => {
                                         <input
                                             id="name"
                                             type="text" 
-                                            placeholder='Имя' 
+                                            placeholder='Введите имя' 
                                             onChange={formik.handleChange}
                                             value={formik.values.name}
                                             className={clsx("", {
