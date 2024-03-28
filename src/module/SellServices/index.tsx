@@ -13,11 +13,11 @@ import { AppModal } from '@/shared/components/AppModal';
 import { useModal } from '@/shared/hooks/useModal';
 import { useFormik, FormikErrors, FormikValues } from 'formik';
 import clsx from 'clsx';
-import { useMask } from '@react-input/mask';
 import { APISRMLEAD } from '@/shared/config';
 
 import { v4 as uuidv4 } from 'uuid';
 import { useState } from 'react';
+import PhoneInput from 'react-phone-number-input/input';
 
 interface Values {
     name: string;
@@ -61,7 +61,7 @@ const SellServices = () => {
         setNameServices(nameServices);
         handleToggle();
     }
-    const inputRef = useMask({ mask: '+7 (___) ___-__-__', replacement: { _: /\d/ } });
+
     const formik = useFormik({
         initialValues: {
             name: "",
@@ -185,16 +185,15 @@ const SellServices = () => {
                                             "!border !border-[red]": formik.errors.name
                                         })}
                                     />
-                                    <input 
+                                    <PhoneInput
                                         id="phone"
                                         type="text" 
-                                        placeholder='Введите номер телефона' 
-                                        onChange={formik.handleChange}
+                                        placeholder='Номер телефона*'
                                         value={formik.values.phone}
+                                        onChange={(e) => formik.setFieldValue("phone", e)}
                                         className={clsx("", {
                                             "!border !border-[red]": formik.errors.phone
                                         })}
-                                        ref={inputRef}
                                     />
                                 </label>
                                 <label htmlFor="email">

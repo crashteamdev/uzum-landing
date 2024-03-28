@@ -6,50 +6,20 @@ import PhoneIcon from '@/shared/components/icons/phoneIcon';
 import Image from 'next/image';
 import { useFormik, FormikErrors, FormikValues } from 'formik';
 import clsx from 'clsx';
-import { useMask } from '@react-input/mask';
 import { useState } from 'react';
 import { APISRMLEAD } from '@/shared/config';
 import { v4 as uuidv4 } from 'uuid';
 import { AppModal } from '@/shared/components/AppModal';
 import { useModal } from '@/shared/hooks/useModal';
-
-interface Values {
-    name: string;
-    email: string;
-    phone: string;
-    comment: string;
-}
-
-const validate = (values: Values): FormikErrors<Values> => {
-    const errors: FormikErrors<Values> = {};
-    if (!values.name) {
-      errors.name = 'Required';
-    } else if (values.name.length > 15) {
-      errors.name = 'Must be 15 characters or less';
-    }
-  
-    if (!values.phone) {
-      errors.phone = 'Required';
-    } else if (!/^\+?\d{11,13}$/.test(values.phone)) {
-      errors.phone = 'Must be 20 characters or less';
-    }
-  
-    if (!values.email) {
-      errors.email = 'Required';
-    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-      errors.email = 'Invalid email address';
-    }
-  
-    return errors;
-};
+import PhoneInput, { Value } from 'react-phone-number-input/input';
+import { validate } from '@/shared/hooks/useValidate';
 
 const DeveloperScreen: React.FC = () => {
     const [success, setSuccess] = useState(false);
-    const [error, setError] = useState(false);
-    const [timeout, setTimeout] = useState(false);
-    const { open, handleToggle, handleClose } = useModal();
-    
-    const inputRef = useMask({ mask: '+7 (___) ___-__-__', replacement: { _: /\d/ } });
+    const [, setError] = useState(false);
+    const [, setTimeout] = useState(false);
+    const { handleClose } = useModal();
+
     const formik = useFormik({
         initialValues: {
             name: "",
@@ -87,6 +57,7 @@ const DeveloperScreen: React.FC = () => {
             });
         },
     });
+
     return (
         <>
             <div className="developer-screen">
@@ -118,7 +89,7 @@ const DeveloperScreen: React.FC = () => {
                                         <input
                                             id="name"
                                             type="text" 
-                                            placeholder='Имя' 
+                                            placeholder='Как тебя зовут?*' 
                                             onChange={formik.handleChange}
                                             value={formik.values.name}
                                             className={clsx("", {
@@ -126,39 +97,36 @@ const DeveloperScreen: React.FC = () => {
                                             })}
                                         />
                                     </div>
-                                    <input 
+                                    <PhoneInput
                                         id="phone"
                                         type="text" 
-                                        placeholder='Введите номер телефона' 
-                                        onChange={formik.handleChange}
+                                        placeholder='Номер телефона*'
                                         value={formik.values.phone}
+                                        onChange={(e) => formik.setFieldValue("phone", e)}
                                         className={clsx("", {
                                             "!border !border-[red]": formik.errors.phone
                                         })}
-                                        // ref={inputRef}
                                     />
                                 </label>
-                                <label htmlFor="email">
+                                <label htmlFor="email" className='relative flex items-center'>
                                     <input 
                                         id="email"
                                         type="email" 
-                                        placeholder='E-mail' 
+                                        placeholder='E-mail*' 
                                         onChange={formik.handleChange}
                                         value={formik.values.email}
                                         className={clsx("", {
                                             "!border !border-[red]": formik.errors.email
                                         })}
                                     />
+                                    {/* <span className='absolute right-3 text-sm font-semibold text-[red]'>{formik.errors.email}</span> */}
                                 </label>
                                 <label htmlFor="comment">
                                     <textarea 
                                         id="comment"
-                                        placeholder='Комментарий' 
+                                        placeholder='Вопрос, обратная связь :)' 
                                         onChange={formik.handleChange}
                                         value={formik.values.comment}
-                                        className={clsx("", {
-                                            "!border !border-[red]": formik.errors.email
-                                        })}
                                     />
                                 </label>
                                 <div className='form-send'>

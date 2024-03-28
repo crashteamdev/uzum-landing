@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@react-input/mask": "^1.0.20",
     "@types/react-helmet": "^6.1.11",
     "@types/react-scroll": "^1.8.10",
     "@uidotdev/usehooks": "^2.4.1",
