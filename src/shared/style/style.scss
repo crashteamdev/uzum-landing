@@ -3,9 +3,11 @@
 @import "swiper/css/navigation";
 @import "swiper/css/pagination";
 
+@import 'react-phone-number-input/style.css';
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
 
 * {
   padding: 0;
@@ -351,4 +353,8 @@ body {
 
 .post-swiper.reviews {
   padding-bottom: 58px;
+}
+
+.PhoneInputCountry {
+  display: none!important;
 }

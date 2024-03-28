@@ -21,6 +21,8 @@
     "react": "^18",
     "react-dom": "^18",
     "react-input-mask": "^2.0.4",
+    "react-loading-skeleton": "^3.4.0",
+    "react-phone-number-input": "^3.3.9",
     "react-scroll": "^1.9.0",
     "sass": "^1.69.7",
     "swiper": "^11.0.5",
