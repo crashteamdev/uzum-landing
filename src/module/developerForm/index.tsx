@@ -11,15 +11,15 @@ import { APISRMLEAD } from '@/shared/config';
 import { v4 as uuidv4 } from 'uuid';
 import { AppModal } from '@/shared/components/AppModal';
 import { useModal } from '@/shared/hooks/useModal';
-import PhoneInput, { Value } from 'react-phone-number-input/input';
 import { validate } from '@/shared/hooks/useValidate';
+import PhoneInput from 'react-phone-number-input/input';
 
 const DeveloperScreen: React.FC = () => {
     const [success, setSuccess] = useState(false);
-    const [, setError] = useState(false);
-    const [, setTimeout] = useState(false);
-    const { handleClose } = useModal();
-
+    const [error, setError] = useState(false);
+    const [timeout, setTimeout] = useState(false);
+    const { open, handleToggle, handleClose } = useModal();
+    
     const formik = useFormik({
         initialValues: {
             name: "",
@@ -57,7 +57,6 @@ const DeveloperScreen: React.FC = () => {
             });
         },
     });
-
     return (
         <>
             <div className="developer-screen">
@@ -72,10 +71,10 @@ const DeveloperScreen: React.FC = () => {
                                         <MailIcon color="#3C7BEB" />
                                         support@marketdb.ru
                                     </a>
-                                    <a href="tel:+79373735469">
+                                    {/* <a href="tel:+79373735469">
                                         <PhoneIcon color="#3C7BEB" />
                                         +7 937 373 54 69
-                                    </a>
+                                    </a> */}
                                 </div>
                             </div>
                             <Image width={300} height={300} src="/images/developer.png" alt="" />
@@ -89,7 +88,7 @@ const DeveloperScreen: React.FC = () => {
                                         <input
                                             id="name"
                                             type="text" 
-                                            placeholder='Как тебя зовут?*' 
+                                            placeholder='Имя' 
                                             onChange={formik.handleChange}
                                             value={formik.values.name}
                                             className={clsx("", {
@@ -108,25 +107,27 @@ const DeveloperScreen: React.FC = () => {
                                         })}
                                     />
                                 </label>
-                                <label htmlFor="email" className='relative flex items-center'>
+                                <label htmlFor="email">
                                     <input 
                                         id="email"
                                         type="email" 
-                                        placeholder='E-mail*' 
+                                        placeholder='E-mail' 
                                         onChange={formik.handleChange}
                                         value={formik.values.email}
                                         className={clsx("", {
                                             "!border !border-[red]": formik.errors.email
                                         })}
                                     />
-                                    {/* <span className='absolute right-3 text-sm font-semibold text-[red]'>{formik.errors.email}</span> */}
                                 </label>
                                 <label htmlFor="comment">
                                     <textarea 
                                         id="comment"
-                                        placeholder='Вопрос, обратная связь :)' 
+                                        placeholder='Комментарий' 
                                         onChange={formik.handleChange}
                                         value={formik.values.comment}
+                                        className={clsx("", {
+                                            "!border !border-[red]": formik.errors.email
+                                        })}
                                     />
                                 </label>
                                 <div className='form-send'>

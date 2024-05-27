@@ -17,8 +17,8 @@ import { APISRMLEAD } from '@/shared/config';
 
 import { v4 as uuidv4 } from 'uuid';
 import { useState } from 'react';
-import PhoneInput from 'react-phone-number-input/input';
 import { validate } from '@/shared/hooks/useValidate';
+import PhoneInput from 'react-phone-number-input/input';
 
 const SellServices = () => {
     const [success, setSuccess] = useState(false);
@@ -32,7 +32,6 @@ const SellServices = () => {
         setNameServices(nameServices);
         handleToggle();
     }
-
     const formik = useFormik({
         initialValues: {
             name: "",

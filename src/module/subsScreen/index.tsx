@@ -1,19 +1,12 @@
 "use client";
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './style.scss';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import clsx from "clsx";
-import { AppModal } from '@/shared/components/AppModal';
 import { useModal } from '@/shared/hooks/useModal';
-
-import { useFormik, FormikErrors, FormikValues } from 'formik';
-import { APISRMLEAD } from '@/shared/config';
-import Image from "next/image";
+import { AppModalDemo } from '@/components/AppModalDemo';
 import { v4 as uuidv4 } from 'uuid';
-import { validate } from '@/shared/hooks/useValidate';
-import PhoneInput from 'react-phone-number-input/input';
-
+import { formatNumber } from '@/shared/hooks/useFormatNumber';
 
 interface ListItem {
     title: string;
@@ -32,47 +25,9 @@ interface DataItem {
 }
 
 const SubsScreen: React.FC = () => {
-    const [success, setSuccess] = useState(false);
-    const [error, setError] = useState(false);
-    const [timeout, setTimeout] = useState(false);
-
     const { open, handleToggle, handleClose } = useModal();
-    const formik = useFormik({
-        initialValues: {
-            name: "",
-            email: "",
-            phone: "",
-        },
-        validate,
-        onSubmit: async (values) => {
-            setTimeout(true);
-            await fetch(APISRMLEAD, {
-                method: "POST",
-                headers: {
-                    "X-Request-ID": uuidv4(),
-                    "Accept": "application/json",
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    "leadType": "demo",
-                    "userIdentity": {
-                        "firstname": values.name
-                    },
-                    "userPhoneNumber": values.phone,
-                    "userEmail": values.email
-                })
-            }).then((data) => {
-                if(data.status === 200) {
-                    setSuccess(true);
-                    setTimeout(false);
-                } else {
-                    setError(true);
-                    setTimeout(false);
-                }
-            });
-        },
-    });
-
+    const [currency, setCurrency] = useState<number | null>(null);
+    const [isFetching, setIsFetching] = useState(false);
     const [threeMonth, setThreeMonth] = useState(false);
 
     const data: DataItem[] = [
@@ -170,9 +125,31 @@ const SubsScreen: React.FC = () => {
         }
     ]
 
+    useEffect(() => {
+        const getCurrency = async () => {
+            if (!isFetching) {
+                setIsFetching(true);
+                await fetch("https://api.marketdb.pro/gateway/exchange-rate?currency=UZS", {
+                headers: { "X-Request-ID": uuidv4() }
+                })
+                .then((res) => res.json())
+                .then(data => {
+                    setCurrency(data.exchangeRate);
+                    setIsFetching(false);
+                })
+                .catch(() => {
+                    setIsFetching(false);
+                });
+            }
+        };
+    
+        getCurrency();
+      }, []);
+    
+
     return (
         <>
-            <div className="subs-screen">
+            <div className="subs-screen" id="tariff">
                 {/* <div className="circle-bg" style={{
                     background: "url(./images/bg/bg-subs.svg)",
                     backgroundRepeat: "no-repeat",
@@ -227,18 +204,32 @@ const SubsScreen: React.FC = () => {
                                     <div className='subs-item-row border-b border-grayModern-400'>
                                         <div className="subs-item__name">
 
-                                            {!item.free ? <span>{threeMonth ? Math.round((item.price * 3 - (item.price * 3 * item.diccountMath)) - 1) : item.price} $</span> : <span>На 5 дней</span>}
+                                        {!item.free ? (
+                                            <span>
+                                            {currency ? (
+                                                threeMonth ? 
+                                                formatNumber(Math.round(item.price * currency * 3 * (1 - item.diccountMath))) :
+                                                formatNumber(Math.round(item.price * currency))
+                                            ) : '...'} сум
+                                            </span>
+                                        ) : (
+                                            <span>На 5 дней</span>
+                                        )}
                                             
                                             {!item.free && (
                                                 !threeMonth ?
-                                                    (<div className="subs-item__name--date"> / месяц</div>)
+                                                    (<div className="subs-item__name--date">месяц</div>)
                                                     :
-                                                    (<div className="subs-item__name--date"> / 3 месяца</div>)
+                                                    (<div className="subs-item__name--date">3 месяца</div>)
                                                 )
                                             }
 
                                         </div>
-                                        {threeMonth && !item.free && <div className='text-[12px] text-grayModern-400 font-medium border-t border-grayModern-400 pt-[10px]'>Месяц за {Math.round((item.price * 3 - (item.price * 3 * item.diccountMath)) / 3)}<span> $</span></div>}
+                                        {threeMonth && !item.free && currency !== null && (
+                                            <div className='text-[12px] text-grayModern-400 font-medium border-t border-grayModern-400 pt-[10px]'>
+                                                Месяц за {formatNumber(Math.round((item.price * currency * 3 * (1 - item.diccountMath)) / 3))}<span> сум</span>
+                                            </div>
+                                        )}                                    
                                     </div>
                                     <div className="subs-advantages">
                                         {item.list.map((itemSubs, key) => (
@@ -255,75 +246,7 @@ const SubsScreen: React.FC = () => {
                     </Swiper>
                 </div>
             </div>
-            <AppModal
-                className='flex justify-center items-center'
-                isOpen={open}
-                closeHandler={handleClose}
-            >
-                <div className='form w-full !max-w-full !h-full'>
-                    {!success ?
-                        <>
-                            <div className="form-title">Протестируй бесплатно</div>
-                            <div className="form-desc w-full max-w-[400px]">Оставь заявку, и мы откроем бесплатный доступ к сервису на 5 дней.</div>
-                            <form onSubmit={formik.handleSubmit}>
-                                <label htmlFor="name" className='w-full'>
-                                    <input
-                                        id="name"
-                                        type="text" 
-                                        placeholder='Имя' 
-                                        onChange={formik.handleChange}
-                                        value={formik.values.name}
-                                        className={clsx("", {
-                                            "!border !border-[red]": formik.errors.name
-                                        })}
-                                    />
-                                    <PhoneInput
-                                        id="phone"
-                                        type="text" 
-                                        placeholder='Номер телефона*'
-                                        value={formik.values.phone}
-                                        onChange={(e) => formik.setFieldValue("phone", e)}
-                                        className={clsx("", {
-                                            "!border !border-[red]": formik.errors.phone
-                                        })}
-                                    />
-                                </label>
-                                <label htmlFor="email">
-                                    <input 
-                                        id="email"
-                                        type="email" 
-                                        placeholder='E-mail' 
-                                        onChange={formik.handleChange}
-                                        value={formik.values.email}
-                                        className={clsx("", {
-                                            "!border !border-[red]": formik.errors.email
-                                        })}
-                                    />
-                                </label>
-                                <div className='form-send'>
-                                    <button type="submit" className="btn btn--orange">Отправить заявку</button>
-                                    <span>Нажимая на кнопку, вы даете <a href="/privacy">согласие на обработку своих персональных данных</a></span>
-                                </div>
-                            </form>
-                            {error && <div className='mt-4 text-[red]'>Неизвестная ошибка! Обратитесь в тех.поддержку.</div>}
-                        </>
-                    :
-                        <div className='flex flex-col justify-center items-center'>
-                            <div className='mb-[30px]'>
-                                <Image src="/images/icon/success.png" width={68} height={68} alt="Успешно" />
-                            </div>
-                            <div className="form-title">Спасибо за заявку!</div>
-                            <div className="form-desc">Мы свяжемся с вами в ближайшее время.</div>
-                        </div>
-                    }
-
-                    {timeout &&
-                        <div className='absolute w-full h-full bg-blueGray-100/60 right-0 top-0 flex items-center justify-center'>
-                            <span className="loader"></span>
-                        </div>
-                    }
-                </div>
-            </AppModal>
+            <AppModalDemo open={open} handleClose={handleClose} />
         </>
     )
 };
