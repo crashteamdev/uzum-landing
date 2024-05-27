@@ -1,19 +1,21 @@
 "use client";
 
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import './style.scss';
 import clsx from 'clsx';
 import Image from 'next/image';
 import { TelegramIcon } from '../icons/socialIcons';
 import CloseIcon from '../icons/close';
 import Link from 'next/link';
-
+import { Link as ScrollLink } from 'react-scroll';
+import { menuItem } from './statics';
 
 interface IProps {
     className?: string;
 }
 
 const Header: FC = ({ className }: IProps) => {
+    const [btnLkSite, setBtnLkSite] = useState("Анализировать!");
     const [burger, setBurger] = useState(false);
     const [topBar, closeTopBar] = useState(true);
 
@@ -21,6 +23,14 @@ const Header: FC = ({ className }: IProps) => {
         closeTopBar(false);
         localStorage.setItem('topbar1', 'false');
     }
+
+    // useEffect(() => {
+    //     if (variant === 'btn-login') {
+    //         setBtnLkSite("Войти")
+    //     } else if(variant === 'btn-analytics') {
+    //         setBtnLkSite("Анализировать");
+    //     }
+    // }, []);
 
     return (
         <>
@@ -33,7 +43,7 @@ const Header: FC = ({ className }: IProps) => {
                     </div>
                 </div>
             } */}
-            <header className={clsx("header z-[9999]", className)}>
+            <header className={clsx("header z-10", className)}>
                 <div className="container">
                     <div className="row header-row">
                         <div className='header-left'>
@@ -42,27 +52,25 @@ const Header: FC = ({ className }: IProps) => {
                             </Link>
                             <div className="header-menu">
                                 <Link className='active' href="/">Главная</Link>
-                                <Link
-                                    href="/"
-                                >
-                                    Тарифы
-                                </Link>
-                                <Link
-                                    href="/"
-                                >
-                                    О нас
-                                </Link>
-                                <Link target='_blank' rel="noreferrer" href="https://chromewebstore.google.com/detail/marketdb-%D0%B0%D0%BD%D0%B0%D0%BB%D0%B8%D1%82%D0%B8%D0%BA%D0%B0-uzumuz/blgbandfopjlfnfpgknfmdkboekolpcc">
-                                    Расширение
-                                </Link>
+                                {menuItem.map((item, index) => (
+                                    <ScrollLink 
+                                        key={index}
+                                        to={item.to} 
+                                        spy={true} 
+                                        smooth={true} 
+                                        duration={500} 
+                                    >
+                                        {item.name}
+                                    </ScrollLink>
+                                ))}
                             </div>
                         </div>
                         <div className="header-right">
-                            <Link className='header-phone' target='_blank' rel="noreferrer" href="https://t.me/marketdbru">
+                            <Link className='header-phone' target='_blank' rel="noreferrer" href="https://t.me/marketdb_manager">
                                 <TelegramIcon color="#fff" />
-                                Чат продавцов
+                                Напишите нам!
                             </Link>
-                            <Link className='btn' href="https://space.marketdb.pro/">Войти</Link>
+                            <Link className='btn' href="https://space.marketdb.pro/">{btnLkSite}</Link>
                         </div>
                         <div className="header-burger" onClick={() => setBurger(true)}>
                             <span></span>
@@ -76,7 +84,7 @@ const Header: FC = ({ className }: IProps) => {
                         <div>
                             <div className="header-mob-menu-top">
                                 <Link href="/" className="header-logo">
-                                    <Image fill src="/images/logo-mob.svg" alt="" />
+                                    <Image src="/images/logo-mob.svg" alt="" fill />
                                 </Link>
                                 <div onClick={() => setBurger(false)}>
                                     <CloseIcon color='#1A1A1A' />
@@ -84,16 +92,26 @@ const Header: FC = ({ className }: IProps) => {
                             </div>
                             <div className="header-mob-menu-content">
                                 <Link href="/">Главная</Link>
-                                <Link href="/">Тарифы</Link>
-                                <Link href="/">О нас</Link>
+                                {menuItem.map((item, index) => (
+                                    <ScrollLink 
+                                        key={index}
+                                        to={item.to} 
+                                        spy={true} 
+                                        smooth={true} 
+                                        duration={500}
+                                        onClick={() => setBurger(false)}
+                                    >
+                                        {item.name}
+                                    </ScrollLink>
+                                ))}
                             </div>
                         </div>
                         <div className="header-mob-menu-bottom">
-                            <Link target='_blank' rel="noreferrer" href="https://t.me/marketdbru" className='header-mob-menu-phone'>
-                                <TelegramIcon color="#fff" />
-                                Чат продавцов
+                            <Link target='_blank' rel="noreferrer" href="https://t.me/marketdb_manager" className='header-mob-menu-phone flex items-center gap-1 font-medium'>
+                                <TelegramIcon color="black" />
+                                Напишите нам!
                             </Link>
-                            <Link target='_blank' rel="noreferrer" href="https://space.marketdb.pro/" className="btn">Войти</Link>
+                            <Link target='_blank' rel="noreferrer" href="https://space.marketdb.pro/" className="btn">{btnLkSite}</Link>
                         </div>
                     </div>
                 }

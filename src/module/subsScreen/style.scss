@@ -91,20 +91,20 @@
       }
       &__name {
         display: flex;
-        align-items: baseline;
+        flex-direction: column;
         span {
           font-style: normal;
           font-weight: 400;
-          font-size: 41px;
+          font-size: 35px;
           line-height: 150%;
           color: #3c7beb;
           display: block;
-          margin-right: 10px;
         }
         &--date {
           color: #959595;
           font-size: 16px;
           line-height: 24px;
+          margin-bottom: 15px;
         }
       }
       &__discount {

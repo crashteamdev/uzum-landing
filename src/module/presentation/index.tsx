@@ -19,37 +19,55 @@ interface DataItem {
 const data: DataItem[] = [
     {
         count: "01",
-        title: "Аналитика конкурентов",
+        title: "Аналитика категорий",
+        desc: "Проанализируйте категории, включая дочерние категории по разным параметрам, периодам и отсортируйте так как вам удобно.",
+        img: "img-analytics-cat.png"
+    },
+    {
+        count: "02",
+        title: "Аналитика каталога в категории",
+        desc: "Аналатика каталога с возможность отсортировать и отфильтровать нужные показатели, а так же выбор периода аналитики.",
+        img: "img-analytics-catalog.png"
+    },
+    {
+        count: "03",
+        title: "Сводка по категории",
+        desc: "Общая сводка по категории за каждый день ввиде графиков.",
+        img: "img-analytics-svodka.png"
+    },
+    {
+        count: "04",
+        title: "Расширение для браузера",
         desc: "Проанализируем каждый товар в покупках ваших клиентов, дадим точную статистику",
         img: "img-1.png"
     },
     {
-        count: "02",
-        title: "Товары конкурентов",
+        count: "05",
+        title: "Расширение для браузера",
         desc: "Похожие товары конкурентов, работает на основе нашего собственного алгоритма и подбирает товары максимально похожие на ваш",
         img: "img-2.png"
     },
     {
-        count: "03",
-        title: "Позиции в категориях",
+        count: "06",
+        title: "Расширение для браузера",
         desc: "История позиций в категориях, будьте в курсе на какой позиции находилась ваша карточка, что на нее повлияло а так же отслеживайте позиции конкурентов",
         img: "img-3.png"
     },
     {
-        count: "04",
-        title: "Аналитика магазина",
+        count: "07",
+        title: "Расширение для браузера",
         desc: "Множество показатель продаж в магазине конкурента, в том числе отчет в формате Excel. А так же другие магазины продавца",
         img: "img-4.png"
     },
     {
-        count: "05",
-        title: "Аналитика категорий",
+        count: "08",
+        title: "Расширение для браузера",
         desc: "Различные показатели для категории, за счет которой можно искать нужную нишу. А так же отчеты в формате Excel.",
         img: "img-5.png"
     },
     {
-        count: "06",
-        title: "Аналитика в каталоге",
+        count: "09",
+        title: "Расширение для браузера",
         desc: "Данные о продажах, продавцев прямо в каталоге! Работает на всем сайте.",
         img: "img-6.png"
     },
@@ -60,9 +78,9 @@ const PresentationSlider: React.FC = () => {
     const swiperRef = useRef<SwiperType>();
 
     return (
-        <div className="presentation-slider" style={{ paddingTop: "100px" }}>
+        <div className="presentation-slider" style={{ paddingTop: "100px" }} id="analytics">
             <div className="container">
-                <div className="title">Инструменты аналитики</div>
+                <div className="title">Инструменты для продавцов</div>
                 <Swiper
                     modules={[Pagination, Navigation, EffectFade]}
                     slidesPerView={1}
@@ -93,7 +111,7 @@ const PresentationSlider: React.FC = () => {
                                 </div>
                             </div>
                             <div className="presentation-swiper-item-img">
-                                <Image width={738} height={480} src={`/images/presentation/${item.img}`} alt="" />
+                                <Image width={738} height={480} className='h-full object-cover object-left' src={`/images/presentation/${item.img}`} alt="" />
                             </div>
                         </SwiperSlide>
                     ))}

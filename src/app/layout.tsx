@@ -23,8 +23,8 @@ export default function RootLayout({
       <head>
         <meta httpEquiv="content-type" content="text/html; charset=UTF-8" />
         <meta property="og:locale" content="ru_RU" />
-        <meta property="og:url" content="https://marketdb.ru/" />
-        <meta property="og:site_name" content="Marketdb" />
+        <meta property="og:url" content="https://marketdb.org/" />
+        <meta property="og:site_name" content="MarketDB" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Аналитика продаж на маркетплейсе Uzum Market" />
         <meta property="og:description" content="Анализ продаж конкурентов и поиск прибыльных товаров на маркетплейсах. Находите прибыльные товары и ниши на Uzum Market"></meta>
